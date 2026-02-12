@@ -26,8 +26,8 @@ jobs:
       - name: Build and tag Docker image
         run: |
           docker build -t vide_calling_app-app:latest .
-          docker tag vide_calling_app-app:latest ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
+          docker tag vide_calling_app-app:latest ${{ secrets.ECR_REGISTRY }}/vide_app:latest
 
       - name: Push to ECR
         run: |
-          docker push ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
+          docker push ${{ secrets.ECR_REGISTRY }}/vide_app:latest
