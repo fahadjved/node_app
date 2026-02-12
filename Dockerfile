@@ -1,7 +1,7 @@
-FROM node:22-alpine
+FROM public.ecr.aws/lambda/nodejs:18
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 8000
+EXPOSE 8080
 CMD ["node","index.js"]
