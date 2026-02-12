@@ -20,11 +20,11 @@ jobs:
           aws-region: us-east-1
       - name: deploy to server
         run: |
-          docker build -t video-calling-app:latest .
-           docker tag my-video-app:latest ${{ secrets.ECR_REGISTRY }}/my-video-app:latest
+          docker build -t vide_calling_app-app:latest .
+          docker tag vide_calling_app-app:latest ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
       - name: push to ECR
         run: |
-          docker push ${{ secrets.ECR_REGISTRY }}/my-video-app:latest
+          docker push ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
 
 
  
