@@ -18,16 +18,13 @@ jobs:
           aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-
-      - name: Login to ECR
-        run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
-
-      - name: Build and tag Docker image
+      - name: deploy to server
         run: |
           docker build -t vide_calling_app-app:latest .
           docker tag vide_calling_app-app:latest ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
-
-      - name: Push to ECR
+      - name: push to ECR
         run: |
           docker push ${{ secrets.ECR_REGISTRY }}/vide_calling_app-app:latest
+
+
+ 
