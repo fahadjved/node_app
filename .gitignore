@@ -2,7 +2,7 @@
 # FVM Version Cache
 .fvm/# Logs
  # flutter
- .fvmrc
+.fvmrc
 video_app/
 logs
 *.log
