@@ -1,6 +1,7 @@
-FROM public.ecr.aws/lambda/nodejs:22
+FROM node:22-alpine
 WORKDIR /var/task
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD [ "index.handler" ]
+EXPOSE 8080
+CMD [ "node", "index.js" ]

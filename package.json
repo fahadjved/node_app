@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "node index"
   },
   "author": "",
   "license": "ISC",
@@ -11,8 +11,8 @@
   "dependencies": {
     "body-parser": "^2.2.2",
     "express": "^5.2.1",
-    "nodemon": "^3.1.11",
-    "serverless-http": "^4.0.0",
+    
+   
     "socket.io": "^4.8.3"
   }
 }

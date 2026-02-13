@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyparser = require('body-parser');
-const serverless = require('serverless-http');
+//const serverless = require('serverless-http');
 const http = require('http');
 const { Server } = require('socket.io');
 const { json } = require('express');
-//const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -47,9 +47,9 @@ io.on("connection", (socket) => {
     })
 });
 
-app.get('/video_app', (req, res) => {
+app.get('/', (req, res) => {
     return res.send("Hello from server lambda function!");
 })
-//server.listen(PORT,"0.0.0.0", (_) => console.log(`Server is started at Port ${PORT}`));
+server.listen(PORT,"0.0.0.0", (_) => console.log(`Server is started at Port ${PORT}`));
 
-module.exports.handler = serverless(app);
+//module.exports.handler = serverless(app);
