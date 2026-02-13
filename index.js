@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const http = require('http');
 const { Server } = require('socket.io');
 const { json } = require('express');
-const PORT = 8080 || process.env.PORT;
+const PORT = process.env.PORT || 8080;
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -47,6 +47,6 @@ io.on("connection", (socket) => {
 });
 
 app.get('/', (req, res) => {
-    return res.send("Hello from server");
+    return res.send("Hello from server lambda function!");
 })
 server.listen(PORT,"0.0.0.0", (_) => console.log(`Server is started at Port ${PORT}`));
