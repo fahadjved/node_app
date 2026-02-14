@@ -48,7 +48,7 @@ io.on("connection", (socket) => {
 });
 
 app.get('/', (req, res) => {
-    return res.send("Hello from server lambda function!");
+    return res.send("Hello from server lambda function for vide calling app!");
 })
 server.listen(PORT,"0.0.0.0", (_) => console.log(`Server is started at Port ${PORT}`));
 
