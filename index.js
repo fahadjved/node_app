@@ -32,6 +32,7 @@ io.on("connection", (socket) => {
 
     // join the room id from
     socket.join(roomId);
+    socket.emit("joined", { email, roomId });
 
     // Broadcast the new user in all ready joined the room
     socket.broadcast.to(roomId).emit("user-joined", { email });
