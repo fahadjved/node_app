@@ -13,6 +13,7 @@ const { CheckAuth } = require("./Middlewares/Chech_Auth");
 const PORT = process.env.PORT || 8080;
 const app = express();
 const DBurl = process.env.MONGODB_URI;
+
 const userRouter = require("./routes/user");
 const teacherRouter = require("./routes/Teacher");
 const adminRouter = require("./routes/Admin");
@@ -37,7 +38,7 @@ const queueService = new QueueService(io);
 // connect to database
 DBConnection(DBurl)
   .then((_) => {
-    console.log(`Mongo DB is Connected `);
+    console.log(`Successfully connected to Mongo DB `);
   })
   .catch((e) => {
     console.log(`Error in connection ${e}`);
