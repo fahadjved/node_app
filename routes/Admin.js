@@ -7,7 +7,7 @@ const {
 } = require("../controllers/Teacher_handel");
 const {
   handelAdminCreation,
-  handelAdminLogin,
+  
 } = require("../controllers/user_handel");
 
 const { CheckAuth } = require("../Middlewares/Chech_Auth");
@@ -42,5 +42,5 @@ router.get("/teachers", CheckAuth(), CheckRole("Admin"), handelGetAllTeachers);
 //   handelGetMeetingId,
 // );
 router.post("/create-admin", handelAdminCreation);
-router.post("/login-admin", handelAdminLogin);
+
 module.exports = router;

@@ -30,33 +30,7 @@ async function handelTeacherCreation(req, res) {
     });
   }
 }
-async function handleTeacherLogin(req, res) {
-  const { email, password } = req.body;
-  console.log(req.body);
-  try {
-    const token = await User.comparePassword(email, password);
-    const decoded = verifyToken(token);
-    if (decoded.role == "Teacher") {
-      return res
-        .status(200)
-        .json({ success: true, message: "Login successful", token });
-    } else if (decoded.role == "Admin") {
-      return res
-        .status(200)
-        .json({ success: true, message: "Admin login successful", token });
-    } else {
-      return res
-        .status(200)
-        .json({ success: true, message: "Parent login successful", token });
-    }
-  } catch (error) {
-    res.status(401).json({
-      success: false,
-      message: "Invalid credentials",
-      error: error.message,
-    });
-  }
-}
+
 async function handelGetAllTeachers(req, res) {
   try {
     const teachers = await Teacher.find().populate(
@@ -74,6 +48,6 @@ async function handelGetAllTeachers(req, res) {
 }
 module.exports = {
   handelTeacherCreation,
-  handleTeacherLogin,
+  
   handelGetAllTeachers,
 };

@@ -25,22 +25,33 @@ async function handelAdminCreation(req, res) {
   }
 }
 
-async function handelAdminLogin(req, res) {
+
+async function handleUserLogin(req, res) {
+  const { email, password } = req.body;
+  console.log(req.body);
   try {
-    const { email, password } = req.body;
     const token = await User.comparePassword(email, password);
-    return res.status(200).json({
-      success: true,
-      message: "Admin login successful",
-      token,
-    });
+    const decoded = verifyToken(token);
+    if (decoded.role == "Teacher") {
+      return res
+        .status(200)
+        .json({ success: true, message: "Login successful", token });
+    } else if (decoded.role == "Admin") {
+      return res
+        .status(200)
+        .json({ success: true, message: "Admin login successful", token });
+    } else {
+      return res
+        .status(200)
+        .json({ success: true, message: "Parent login successful", token });
+    }
   } catch (error) {
-    console.log(error);
-    return res.status(401).json({
+    res.status(401).json({
       success: false,
       message: "Invalid credentials",
+      error: error.message,
     });
   }
 }
 
-module.exports = { handelAdminCreation, handelAdminLogin };
+module.exports = { handelAdminCreation,handleUserLogin };
