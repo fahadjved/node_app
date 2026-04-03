@@ -1,5 +1,5 @@
 const { User } = require("../Models/User_models");
-
+const { verifyToken } = require("../Auth/Auth");
 async function handelAdminCreation(req, res) {
   try {
     const { name, email, password, PhoneNumber } = req.body;

@@ -1,6 +1,6 @@
 const { Teacher } = require("../Models/Teacher_model");
 const { User } = require("../Models/User_models");
-const { verifyToken } = require("../Auth/Auth");
+
 
 async function handelTeacherCreation(req, res) {
   try {
@@ -48,6 +48,6 @@ async function handelGetAllTeachers(req, res) {
 }
 module.exports = {
   handelTeacherCreation,
-  
+ 
   handelGetAllTeachers,
 };
