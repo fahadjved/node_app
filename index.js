@@ -38,10 +38,10 @@ const queueService = new QueueService(io);
 // connect to database
 DBConnection(DBurl)
   .then((_) => {
-    console.log(`Successfully connected to Mongo DB `);
+    console.log(`Successfully Connected to Mongo DB `);
   })
   .catch((e) => {
-    console.log(`Error in connection ${e}`);
+    console.log(`Error in Connection ${e}`);
   });
 
 // middlewares
