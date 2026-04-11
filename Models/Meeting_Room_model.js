@@ -45,7 +45,7 @@ const meetingRoomSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["waiting_for_teacher", "Live", "in_meeting", "closed"],
+      enum: ["waiting_for_teacher", "Live", "in_meeting", "closed","active"],
       default: "waiting_for_teacher",
     },
     completedMeetings: [
