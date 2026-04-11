@@ -109,7 +109,7 @@ io.on("connection", (socket) => {
       // should trigger the WebRTC offer/answer flow.
     } else {
       // Fallback: original behavior if role not sent
-      await Meeting.findByIdAndUpdate(roomId, { status: "active" });
+      await Meeting.findByIdAndUpdate(roomId, { status: "Live" });
       socket.emit("joined", { email, roomId });
       socket.broadcast.to(roomId).emit("user-joined", { email });
     }
