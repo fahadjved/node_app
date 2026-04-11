@@ -5,7 +5,7 @@ async function handelGetParentsMeeting(req, res) {
   console.log("Grade:", grade); // Debugging log
   try {
     
-    const meetings = await Meeting.find({ grade: grade,status: "scheduled",});
+    const meetings = await Meeting.find({ grade: grade, status: { $in: ["scheduled", "Live"] } });
 
     res.status(200).json({
       success: true,

@@ -25,7 +25,10 @@ async function handelGetAllMeetings(req, res) {
   const { id } = req.params;
   console.log("Teacher ID:", id); // Debugging log
   try {
-    const meetings = await Meeting.find({ teacher: id ,status: "scheduled",});
+   const meetings = await Meeting.find({
+  teacher: id,
+  status: { $in: ["scheduled", "Live"] }
+});
     res.status(200).json({ success: true, meetings });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
